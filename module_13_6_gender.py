@@ -6,7 +6,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 
-api = "7612810185:AAF3uy1raG1EH2x8bLwhZbAs7lskd_kW6ZU"  # "???token_bot???"
+api = "???token_bot???"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -57,13 +57,10 @@ async def get_formulas(call, state):
     if str(data['first_gender']) == "мужской":
         await call.message.answer("10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) + 5")
         await call.answer()
-    else: # elif str(data['first_gender']) == "женский":
+    else: 
         await call.message.answer("10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) – 161")
         await call.answer()
-    # else:
-    #     await call.message.answer('Введены некорректные данные по полу.')
-    #     await call.answer()
-
+   
 
 @dp.callback_query_handler(state=UserState.gender, text='calories')
 async def set_age(call, state):
