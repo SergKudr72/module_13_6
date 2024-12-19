@@ -61,10 +61,12 @@ async def get_genders_formulas(call):
 @dp.callback_query_handler(text=('man', 'woman'))
 async def get_formulas(call):
     if call.data == 'man':
-        await call.message.answer("Формула расчета для мужчин: 10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) + 5")
+        await call.message.answer("Формула расчета для мужчин: (10 x вес (кг)) "
+                                  "+ (6,25 x рост (см)) – (5 x возраст (г)) + 5")
         await call.answer()
     elif call.data == 'woman':
-        await call.message.answer("Формула расчета для женщин: 10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) – 161")
+        await call.message.answer("Формула расчета для женщин: (10 x вес (кг)) "
+                                  "+ (6,25 x рост (см)) – (5 x возраст (г)) – 161")
         await call.answer()
 
 
